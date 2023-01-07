@@ -129,7 +129,7 @@ void LoadCFG(void)
 
 }
 
-void LoadConfig(void)
+void Loadconfig(void)
 {
 	FILE * fp;
 
