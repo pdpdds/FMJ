@@ -1,20 +1,21 @@
-
+PROJ=fmj
 CC=wcc386.exe
 LN=wcl386.exe
 AS=tasm.exe
 COPT=-3r -zq -mf -oacilrt -s
-LOPT=-zq
+LOPT=-zq 
 AOPT=-m -q -ml -p -t -jsmart
 FMJ=fmj.exe
-OBJ=metal.obj files.obj fmjmenu.obj modload.obj modplay.obj grplib.obj  sprite.obj fli.obj MAIN_DAT.OBJ EN_DAT.OBJ
+OBJ=metal.obj files.obj fmjmenu.obj modload.obj modplay.obj grplib.obj  sprite.obj fli.obj 
 
 makefile : $(FMJ)
     @echo Done.
 
-fmj.exe:   fmj.obj $(OBJ)
-    $(LN) fmj.obj  $(LOPT) $(OBJ)
+$(PROJ).exe:  fmj.obj $(OBJ)
+    $(LN)  fmj.obj MAIN_DAT.OBJ EN_DAT.OBJ $(LOPT) $(OBJ) 
 .c.obj:
     $(CC) $(COPT) $<
 
 .asm.obj:
     $(AS) $(AOPT) $<
+	
