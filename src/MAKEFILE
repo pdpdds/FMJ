@@ -6,13 +6,14 @@ COPT=-3r -zq -mf -oacilrt -s
 LOPT=-zq 
 AOPT=-m -q -ml -p -t -jsmart
 FMJ=fmj.exe
-OBJ=metal.obj files.obj fmjmenu.obj modload.obj modplay.obj grplib.obj  sprite.obj fli.obj 
+OBJ=metal.obj files.obj fmjmenu.obj modload.obj  &
+      modplay.obj grplib.obj  sprite.obj fli.obj MAIN_DAT.OBJ EN_DAT.OBJ
 
 makefile : $(FMJ)
     @echo Done.
 
-$(PROJ).exe:  fmj.obj $(OBJ)
-    $(LN)  fmj.obj MAIN_DAT.OBJ EN_DAT.OBJ $(LOPT) $(OBJ) 
+$(PROJ).exe:  $(OBJ) 
+    $(LN)  fmj.obj $(OBJ) 
 .c.obj:
     $(CC) $(COPT) $<
 
